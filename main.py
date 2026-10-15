@@ -28,6 +28,13 @@ app.mount(
     name="uploads",
 )
 
+print("=== Railway Environment Check ===", flush=True)
+print("CLIENT_ID available:", repr(SETTINGS.client_id), flush=True)
+print("CLIENT_SECRET available:", repr(SETTINGS.client_secret), flush=True)
+print("REDIRECT_URI:", repr(SETTINGS.redirect_uri), flush=True)
+print("FRONTEND_URL:", repr(SETTINGS.frontend_url), flush=True)
+print("=================================", flush=True)
+
 
 origins = ["https://treasure-hunt1337.netlify.app"]
 
