@@ -29,7 +29,7 @@ app.mount(
 )
 
 
-origins = SETTINGS.frontend_url.split(",")
+origins = ["https://treasure-hunt1337.netlify.app/"]
 
 app.add_middleware(
     CORSMiddleware,
