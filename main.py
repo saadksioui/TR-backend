@@ -29,7 +29,7 @@ app.mount(
 )
 
 
-origins = ["https://treasure-hunt1337.netlify.app/"]
+origins = ["https://treasure-hunt1337.netlify.app"]
 
 app.add_middleware(
     CORSMiddleware,
