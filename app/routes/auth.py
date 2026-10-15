@@ -40,7 +40,20 @@ async def auth_callback(auth: AuthCode):
         token_response = await client.post(token_url, data=data)
 
         if token_response.status_code != 200:
-            raise HTTPException(status_code=400, detail="Failed to authenticate with 42")
+            try:
+                error_data = token_response.json()
+            except ValueError:
+                error_data = {}
+
+            print("42 OAuth failed:", flush=True)
+            print("Status:", token_response.status_code, flush=True)
+            print("Error:", error_data.get("error"), flush=True)
+            print("Description:", error_data.get("error_description"), flush=True)
+
+            raise HTTPException(
+                status_code=400,
+                detail="Failed to authenticate with 42"
+            )
         token_json = token_response.json()
 
         access_token = token_json.get("access_token", None)
